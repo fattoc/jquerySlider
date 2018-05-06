@@ -1,10 +1,10 @@
-###jquery简单实现图片轮播
+### jquery简单实现图片轮播
 
 > 图片轮播效果在平时开发过程中使用的频率非常高，为了避免重复造轮子，也为了之后遇到可以节约时间，所以大致记录一下实现过程，方便复用。
 
 ​	图片轮播其实也有很多坑，因为有时候需要轮播的图片大小不一致，如果要照顾到美观、整齐等因素就可能导致某些图片被裁切或者挤压变形；如果重点是保障图片显示的完整性，并且尽量保证不变形不留白时，则可能导致图片显示区域来回变化挤占其它DOM位置的情况。关于这一部分有机会再研究，这里默认需要轮播的图片都是经过特殊处理，大小一致 风格统一的（手动滑稽）。
 
-####轮播原理
+#### 轮播原理
 
 ​	图片轮播的原理就是把所有需要轮播的图片都横着排成一排（因为通常是横向轮播）就像一节节的火车一样，然后启动定时器，每秒向左移动一张图片宽度的距离，只有移动到显示区域的那一张图片会被看到，其它的图片隐藏。
 
@@ -20,50 +20,50 @@
 
 ```html
 <div id="slider-wrap">
-			  <ul id="slider">
-				 <li data-color="#1abc9c">
-					<div>
-						<h4>Slide #1</h4>
-					</div>                
-					<i class="fa fa-image"></i>
-				 </li>
-				 
-				 <li data-color="#3498db">
-					<div>
-						<h4>Slide #2</h4>
-					</div>
-					<i class="fa fa-gears"></i>
-				 </li>
-				 
-				 <li data-color="#9b59b6">
-					<div>
-						<h4>Slide #3</h4>
-					</div>
-					<i class="fa fa-sliders"></i>
-				 </li>
-				 
-				 <li data-color="#34495e">
-					<div>
-						<h4>Slide #4</h4>
-					</div>
-					<i class="fa fa-code"></i>
-				 </li>
-				 
-				 <li data-color="#e74c3c">
-					<div>
-						<h4>Slide #5</h4>
-					</div>
-					<i class="fa fa-microphone-slash"></i>
-				 </li>
-			  </ul>
-			  
-			   <!--controls-->
-			  <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
-			  <div class="btns" id="pause"><i class="fa fa-pause" aria-hidden="true"></i></div>
-			  <div class="btns" id="prev"><i class="fa fa-arrow-left"></i></div>
-			  <div id="counter"></div>
-			  <!--controls-->   
-		</div>
+	  <ul id="slider">
+		 <li data-color="#1abc9c">
+			<div>
+				<h4>Slide #1</h4>
+			</div>                
+			<i class="fa fa-image"></i>
+		 </li>
+		 
+		 <li data-color="#3498db">
+			<div>
+				<h4>Slide #2</h4>
+			</div>
+			<i class="fa fa-gears"></i>
+		 </li>
+		 
+		 <li data-color="#9b59b6">
+			<div>
+				<h4>Slide #3</h4>
+			</div>
+			<i class="fa fa-sliders"></i>
+		 </li>
+		 
+		 <li data-color="#34495e">
+			<div>
+				<h4>Slide #4</h4>
+			</div>
+			<i class="fa fa-code"></i>
+		 </li>
+		 
+		 <li data-color="#e74c3c">
+			<div>
+				<h4>Slide #5</h4>
+			</div>
+			<i class="fa fa-microphone-slash"></i>
+		 </li>
+	  </ul>
+	  
+	   <!--controls-->
+	  <div class="btns" id="next"><i class="fa fa-arrow-right"></i></div>
+	  <div class="btns" id="pause"><i class="fa fa-pause" aria-hidden="true"></i></div>
+	  <div class="btns" id="prev"><i class="fa fa-arrow-left"></i></div>
+	  <div id="counter"></div>
+	  <!--controls-->   
+</div>
 ```
 
 #### 简单设置一下样式
